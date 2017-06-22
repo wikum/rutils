@@ -1,0 +1,13 @@
+Package: wutil
+Version: 0.0.1
+Date: 2017-06-22
+Title: Utilities for working with Omics data on R
+Author: Wikum Dinalankara <wdinala1@jhmi.edu>
+Maintainer: Wikum Dinalankara <wdinala1@jhmi.edu>
+Depends: R (>= 2.13.1), pROC, gplots
+Description: The package offers various utility functions for working with Omics data on R
+biocViews: Software, StatisticalMethod,
+      Classification
+License: GPL-2
+Packaged: 2017-06-22 16:50:11 UTC
+NeedsCompilation: yes
