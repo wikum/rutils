@@ -35,9 +35,17 @@ utils.make_n_factor_map <- function(x){
 #'
 #' @export
 #' 
-utils.lapply_c = function(x){
+utils.lapply_c <- function(x){
   lapply_c(x)
 }
+
+#'
+#' @export
+#' 
+utils.lapply_i <- function(x, fun, ...){
+  lapply_i(x, fun, ...)
+}
+
 
 #' @export
 gtheme.GENERIC <- function(x){
