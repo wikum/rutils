@@ -35,8 +35,8 @@ utils.make_n_factor_map <- function(x){
 #'
 #' @export
 #' 
-utils.lapply_c <- function(x){
-  lapply_c(x)
+utils.lapply_c <- function(x, ...){
+  lapply_c(x, ...)
 }
 
 #'
