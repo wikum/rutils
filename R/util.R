@@ -60,7 +60,7 @@ lapply_c = function(x, ...){
 # fun(x, x_i, x_label)
 lapply_i = function(x, fun, ...){
 
-	out.list = lapply(1:length(x), function(xi) fun(x=x[[xi]], x_i=xi, x_label=names(x)[xi], ...))
+	out.list = lapply(1:length(x), function(xi) fun(x[[xi]], xi, names(x)[xi], ...))
 	names(out.list) = names(x)
 	out.list
 
