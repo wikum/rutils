@@ -1,5 +1,6 @@
 
 require(tidyr)
+require(knitr)
 
 ### ========================================================
 ### Utility functions
@@ -64,5 +65,23 @@ lapply_i = function(x, fun, ...){
 	names(out.list) = names(x)
 	out.list
 
+}
+
+
+# j = columns, i = rows
+kable_vector = function(v, j, cols=NULL, ...){
+  
+  i = ceiling(length(v)/j)
+  w = rep("", i * j)
+  w[1:length(v)] = v
+  
+  m = matrix(w, nrow=i, ncol=j, byrow=TRUE)
+  df = data.frame(m)
+  
+  if(is.null(cols))
+    cols = rep("", j)
+  
+  kable(df, col.names=cols, ...)
+  
 }
 

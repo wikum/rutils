@@ -43,8 +43,16 @@ utils.lapply_c <- function(x, ...){
 #' @export
 #' 
 utils.lapply_i <- function(x, fun, ...){
-  lapply_i(x, fun, ...)
+  lapply_i(x=x, fun=fun, ...)
 }
+
+#'
+#' @export
+#' 
+utils.kable_vector <- function(v, j, cols=NULL, ...){
+  kable_vector(v=v, j=j, cols=cols, ...)
+}
+
 
 
 #' @export
