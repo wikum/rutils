@@ -1,10 +1,14 @@
 
 
+### ========================================================
+### Utility functions
+### ========================================================
+
 #' Melt a matrix to a data.frame
 #'
 #' @export
 #' 
-util.meltMat <- function(Mat){
+utils.meltMat <- function(Mat){
   meltMat(Mat)
 }
 
@@ -12,7 +16,7 @@ util.meltMat <- function(Mat){
 #' 
 #' @export
 #' 
-util.list_do_df <- function(l){
+utils.list_do_df <- function(l){
   list_to_df(l)
 }
 
@@ -22,6 +26,14 @@ util.list_do_df <- function(l){
 #' 
 utils.make_n_factor <- function(x){
   make_n_factor(x)
+}
+
+#' Add factor with sample counts to current factor
+#' 
+#' @export
+#' 
+utils.add_n_factor <- function(x){
+  make_n_factor.2(x)
 }
 
 #' Make sample count factor data.frame
@@ -49,17 +61,46 @@ utils.lapply_i <- function(x, fun, ...){
 #'
 #' @export
 #' 
+utils.sapply_c <- function(x, ...){
+  sapply_c(x, ...)
+}
+
+#'
+#' @export
+#' 
 utils.kable_vector <- function(v, j, cols=NULL, ...){
   kable_vector(v=v, j=j, cols=cols, ...)
 }
 
+#'
+#' @export
+#' 
+utils.split_data = function(y, classes, p=.5, samples=NULL){
+  splitData(y=y, classes=classes, p=p, samples=samples)
+}
 
+### ========================================================
+### Hypothesis testing/feature selection
+### ========================================================
+
+#' @export
+utils.Wilcoxon = function(Mat, Groups, classes, ...){
+  featureSelect.Wilcoxon(Mat=Mat, Groups=Groups, classes=classes, ...)
+}
+
+#' @export
+utils.t = function(Mat, Groups, classes, ...){
+  featureSelect.t(Mat=Mat, Groups=Groups, classes=classes, ...)
+}
+
+### ========================================================
+### ggplot2 themes
+### ========================================================
 
 #' @export
 gtheme.GENERIC <- function(x){
   themeGENERIC()
 }
-
 
 #' @export
 gtheme.NO_X_LABS <- function(x){
