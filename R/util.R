@@ -108,7 +108,10 @@ splitData = function(y, classes, p=.5, samples=NULL){
   
   train = c( sample(id0, floor(length(id0) * p)), sample(id1, floor(length(id1) * p)) )
   
-  df = data.frame(pheno=y, group="TEST")
+  df = data.frame(
+    pheno=y, 
+    group=factor(rep("TEST", length(y)), levels=c("TRAIN", "TEST"))
+  )
   df$group[which(1:length(y) %in% train)] = "TRAIN"
   if(! is.null(samples))
     df$sample = samples
