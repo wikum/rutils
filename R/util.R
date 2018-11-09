@@ -131,7 +131,7 @@ getPredictionStats = function(predictions, truth, controlClass, caseClass, decis
   }
   
   out = c(accuracy=acc, sensitivity=sens, specificity=spec, balanced_accuracy=bacc, auc=auc)
-  names(out) = c("accuracy", "sensitivity", "specificity", "balanced_accuracy")
+  names(out) = c("accuracy", "sensitivity", "specificity", "balanced_accuracy", "auc")
   
   out
   
