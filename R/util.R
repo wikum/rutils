@@ -1,6 +1,7 @@
 
 require(tidyr)
 require(knitr)
+require(caret)
 
 ### ========================================================
 ### Utility functions
@@ -113,6 +114,23 @@ splitData = function(y, classes, p=.5, samples=NULL){
     df$sample = samples
   
   df
+  
+}
+
+getPredictionStats = function(predictions, truth, controlClass, caseClass, decision_values=NULL){
+  
+  cm = confusionMatrix(data=predictions, reference=truth, positive=caseClass)
+  acc = cm$overall["Accuracy"]
+  sens = cm$byClass["Sensitivity"]
+  spec = cm$byClass["Specificity"]
+  bacc = cm$byClass["Balanced Accuracy"]
+  
+  auc = NA
+  if(! is.null(decision_values)){
+    
+  }
+  
+  c(accuracy=acc, sensitivity=sens, specificity=spec, balanced_accuracy=bacc, auc=auc)
   
 }
 

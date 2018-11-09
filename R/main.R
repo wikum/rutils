@@ -79,6 +79,16 @@ utils.split_data = function(y, classes, p=.5, samples=NULL){
   splitData(y=y, classes=classes, p=p, samples=samples)
 }
 
+#' @export
+utils.get_prediction_stats = function(predictions, truth, controlClass, caseClass, 
+                                      decision_values=NULL){
+  getPredictionStats(predictions=predictions, 
+                     truth=truth, 
+                     controlClass=controlClass, 
+                     caseClass=caseClass, 
+                     decision_values=decision_values)
+}
+
 ### ========================================================
 ### Hypothesis testing/feature selection
 ### ========================================================
