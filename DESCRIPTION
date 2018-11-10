@@ -3,7 +3,7 @@ Title: A set of useful utility functions for day-to-day tasks.
 Version: 0.0.0.9000
 Authors@R: person("Wikum", "Dinalankara", email = "wdinala1@jhmi.edu", role = c("aut", "cre"))
 Description: This package combines a set of useful utility functions for day-to-day tasks, and some ggplot2 themes to add to plots..
-Depends: R (>= 3.4.1)
+Depends: R (>= 3.4.1), knitr, pROC, caret, tidyr
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true

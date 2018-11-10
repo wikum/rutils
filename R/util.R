@@ -141,3 +141,41 @@ getPredictionStats = function(predictions, truth, controlClass, caseClass, decis
   
 }
 
+calculate_confusions = function(x, y, phenotypes){
+  
+  p.negative = phenotypes[1]
+  p.positive = phenotypes[2]
+  
+  z = sort(unique(x))
+  dz = diff(z)/2
+  
+  thresholds = c(
+    z[1]-dz[1],
+    z[1:(length(z)-1)]+dz,
+    z[length(z)]+tail(dz, 1)
+  )
+  
+  u = t(sapply(thresholds, function(t){
+    
+    yt = ifelse(x <= t, p.negative, p.positive)
+    
+    tn = sum(yt[which(y == p.negative)] == p.negative)
+    tp = sum(yt[which(y == p.positive)] == p.positive)
+    fn = sum(yt[which(y != p.negative)] == p.negative)
+    fp = sum(yt[which(y != p.positive)] == p.positive)
+    
+    sens = tp/(tp+fn)
+    spec = tn/(tn+fp)
+    ppv = ifelse(tp+fp == 0, 1, tp/(tp+fp))
+    npv = ifelse(tn+fn == 0, 1, tn/(tn+fn))
+    acc = (tp+tn)/length(y)
+    bacc = (sens+spec)/2
+    
+    c(threshold=t,
+      sensitivity=sens, specificity=spec, PPV=ppv, NPV=npv, 
+      accuracy=acc, balanced_accuracy=bacc)
+    
+  }))
+  
+  data.frame(u)
+}

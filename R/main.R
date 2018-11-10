@@ -89,6 +89,11 @@ utils.get_prediction_stats = function(predictions, truth, controlClass, caseClas
                      decision_values=decision_values)
 }
 
+#' @export
+utils.calculate_confusions = function(x, y, phenotypes){
+  calculate_confusions(x=x, y=y, phenotypes=phenotypes)
+}
+
 ### ========================================================
 ### Hypothesis testing/feature selection
 ### ========================================================
