@@ -2,6 +2,7 @@
 require(tidyr)
 require(knitr)
 require(caret)
+require(pROC)
 
 ### ========================================================
 ### Utility functions
@@ -130,7 +131,7 @@ getPredictionStats = function(predictions, truth, controlClass, caseClass, decis
   
   auc = NA
   if(! is.null(decision_values)){
-    
+    auc = as.numeric(auc(response=truth, predictor=decision_values))
   }
   
   out = c(accuracy=acc, sensitivity=sens, specificity=spec, balanced_accuracy=bacc, auc=auc)
