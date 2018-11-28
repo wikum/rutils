@@ -75,12 +75,12 @@ utils.kable_vector <- function(v, j, cols=NULL, ...){
 #'
 #' @export
 #' 
-utils.split_data = function(y, classes, p=.5, samples=NULL){
+utils.split_data <- function(y, classes, p=.5, samples=NULL){
   splitData(y=y, classes=classes, p=p, samples=samples)
 }
 
 #' @export
-utils.get_prediction_stats = function(predictions, truth, controlClass, caseClass, 
+utils.get_prediction_stats <- function(predictions, truth, controlClass, caseClass, 
                                       decision_values=NULL){
   getPredictionStats(predictions=predictions, 
                      truth=truth, 
@@ -90,21 +90,28 @@ utils.get_prediction_stats = function(predictions, truth, controlClass, caseClas
 }
 
 #' @export
-utils.calculate_confusions = function(x, y, phenotypes){
+utils.calculate_confusions <- function(x, y, phenotypes){
   calculate_confusions(x=x, y=y, phenotypes=phenotypes)
 }
+
+
+#' @export
+utils.value_match <- function(from, to, x){
+  value_match(from=from, to=to, x=x)
+}
+
 
 ### ========================================================
 ### Hypothesis testing/feature selection
 ### ========================================================
 
 #' @export
-utils.Wilcoxon = function(Mat, Groups, classes, ...){
+utils.Wilcoxon <- function(Mat, Groups, classes, ...){
   featureSelect.Wilcoxon(Mat=Mat, Groups=Groups, classes=classes, ...)
 }
 
 #' @export
-utils.t = function(Mat, Groups, classes, ...){
+utils.t <- function(Mat, Groups, classes, ...){
   featureSelect.t(Mat=Mat, Groups=Groups, classes=classes, ...)
 }
 

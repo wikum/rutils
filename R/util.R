@@ -179,3 +179,17 @@ calculate_confusions = function(x, y, phenotypes){
   
   data.frame(u)
 }
+
+value_match = function(from, to, x){
+
+	if(length(from) != length(to))
+		stop("from and to must be of equal length")
+
+	u = rep(NA, length(x))
+	v = intersect(unique(x), from)
+	for(j in 1:length(v))
+		u[which(x == v[j])] = to[which(from == v[j])[1]]
+
+	u
+
+}
