@@ -101,6 +101,11 @@ utils.value_match <- function(from, to, x){
 }
 
 
+#' @export
+utils.print_venn <- function(x, y){
+  print_venn(x=x, y=y)
+}
+
 ### ========================================================
 ### Hypothesis testing/feature selection
 ### ========================================================

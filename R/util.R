@@ -193,3 +193,15 @@ value_match = function(from, to, x){
 	u
 
 }
+
+print_venn = function(x, y){
+
+  sprintf("%d [%d | %d | %d ] %d",
+    length(x),
+    sum(! x %in% y),
+    length(intersect(x, y)),
+    sum(! y %in% x),
+    length(y)
+  )
+
+}
