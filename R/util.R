@@ -205,3 +205,15 @@ print_venn = function(x, y){
   )
 
 }
+
+make_pairs = function(x){
+  
+  x = sort(unique(x))
+  y = Reduce(rbind, lapply(1:(length(x)-1), function(j){
+    expand.grid(x[j], x[(j+1):length(x)])
+  }))
+  colnames(y) = c("A", "B")
+  rownames(y) = apply(y, 1, function(p) paste(p, collapse=","))
+  y
+  
+}

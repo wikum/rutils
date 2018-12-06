@@ -106,6 +106,13 @@ utils.print_venn <- function(x, y){
   print_venn(x=x, y=y)
 }
 
+
+#' @export
+utils.make_pairs <- function(x){
+  make_pairs(x=x)
+}
+
+
 ### ========================================================
 ### Hypothesis testing/feature selection
 ### ========================================================
