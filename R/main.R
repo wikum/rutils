@@ -8,7 +8,7 @@
 #'
 #' @export
 #' 
-utils.meltMat <- function(Mat, order=TRUE)){
+utils.meltMat <- function(Mat, order=TRUE){
   meltMat(Mat=Mat, order=order)
 }
 
