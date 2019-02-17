@@ -8,8 +8,8 @@
 #'
 #' @export
 #' 
-utils.meltMat <- function(Mat){
-  meltMat(Mat)
+utils.meltMat <- function(Mat, order=TRUE)){
+  meltMat(Mat=Mat, order=order)
 }
 
 #' Convert list to data.frame

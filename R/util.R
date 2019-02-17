@@ -8,11 +8,18 @@ require(pROC)
 ### Utility functions
 ### ========================================================
 
-meltMat = function(Mat){
+meltMat = function(Mat, order=TRUE){
   Mat = as.data.frame(Mat)
   meltedMat = gather(Mat)
   colnames(meltedMat) = c("colKey", "value")
   meltedMat$rowKey = rep(rownames(Mat), ncol(Mat))
+
+  # keep factors in rowname/colnames order
+  if(order){
+    meltedMat$rowKey = factor(meltedMat$rowKey, levels=rownames(Mat))
+    meltedMat$colKey = factor(meltedMat$colKey, levels=colnames(Mat))
+  }
+
   meltedMat
 }
 
