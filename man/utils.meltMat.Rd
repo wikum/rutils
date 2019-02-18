@@ -4,7 +4,7 @@
 \alias{utils.meltMat}
 \title{Melt a matrix to a data.frame}
 \usage{
-utils.meltMat(Mat)
+utils.meltMat(Mat, order = TRUE)
 }
 \description{
 Melt a matrix to a data.frame

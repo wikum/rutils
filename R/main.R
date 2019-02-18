@@ -112,6 +112,10 @@ utils.make_pairs <- function(x){
   make_pairs(x=x)
 }
 
+#' @export
+utils.print_progress <- function(i, k, m, prefix="", suffix=""){
+  print_progress(i=i, k=k, m=m, prefix=prefix, suffix=suffix)
+}
 
 ### ========================================================
 ### Hypothesis testing/feature selection

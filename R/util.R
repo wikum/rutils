@@ -224,3 +224,14 @@ make_pairs = function(x){
   y
   
 }
+
+print_progress = function(i, k, m, prefix="", suffix=""){
+    if(i %% k == 0){
+      cat(sprintf("%s[%.2f%%]%s", 
+                  prefix,
+                  round(i * 100/m, 2),
+                  suffix
+                  ))
+    }
+}
+
