@@ -216,11 +216,27 @@ print_venn = function(x, y){
 make_pairs = function(x){
   
   x = sort(unique(x))
-  y = Reduce(rbind, lapply(1:(length(x)-1), function(j){
+  
+  # y = Reduce(rbind, lapply(1:(length(x)-1), function(j){
+  #   expand.grid(x[j], x[(j+1):length(x)])
+  # }))
+
+  # faster than Reduce(rbind, .)
+  z = lapply(1:(length(x)-1), function(j){
     expand.grid(x[j], x[(j+1):length(x)])
-  }))
+  })
+  y = matrix("", nrow=length(x)*(length(x)-1)/2, ncol=2)
+  j = 1
+  for(i in seq_along(z)){
+    ids = j:(j+nrow( z[[i]] )-1)
+    y[ids, 1] = as.character( z[[i]][, 1] )
+    y[ids, 2] = as.character( z[[i]][, 2] )
+    j = tail(ids, 1)+1
+  }
+
   colnames(y) = c("A", "B")
   rownames(y) = apply(y, 1, function(p) paste(p, collapse=","))
+  y = data.frame(y, stringsAsFactors=FALSE)
   y
   
 }
